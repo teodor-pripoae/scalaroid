@@ -1,0 +1,18 @@
+PATH
+  remote: .
+  specs:
+    scalaris (0.0.1)
+      json (>= 1.4.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    json (1.8.1)
+    minitest (5.3.5)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  minitest (~> 5.3.3)
+  scalaris!
