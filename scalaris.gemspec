@@ -21,7 +21,7 @@ Gem::Specification.new do |s|
   # The list of files to be contained in the gem
   s.files         = Dir["scalaris.rb", "scalarisclient.rb"]
   s.bindir        = 'bin'
-  s.executables   = Dir["scalarisclient.rb"]
+  s.executables   = Dir["bin/rscalaris"]
   # s.extensions    = Dir["ext/extconf.rb"]
 
   # s.require_path = 'lib'
