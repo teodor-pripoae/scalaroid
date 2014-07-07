@@ -63,5 +63,6 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<pry>, ["= 0.9.12.6"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
     s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
+    s.add_dependency(%q<json>, [">= 0"])
   end
 end
