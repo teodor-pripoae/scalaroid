@@ -11,19 +11,19 @@ Gem::Specification.new do |s|
   s.description       = "Ruby bindings for Scalaris"
 
   s.required_rubygems_version = ">= 1.3.6"
-  
+
   # If you have runtime dependencies, add them here
   s.add_runtime_dependency "json", ">= 1.4.0"
-  
+
   # If you have development dependencies, add them here
   # s.add_development_dependency "another", "= 0.9"
 
   # The list of files to be contained in the gem
   s.files         = Dir["scalaris.rb", "scalarisclient.rb"]
-  s.bindir        = '.'
+  s.bindir        = 'bin'
   s.executables   = Dir["scalarisclient.rb"]
   # s.extensions    = Dir["ext/extconf.rb"]
-  
+
   # s.require_path = 'lib'
 
   # For C extensions
