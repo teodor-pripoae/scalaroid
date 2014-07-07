@@ -15,9 +15,6 @@ Gem::Specification.new do |s|
   s.description = "TODO: longer description of your gem"
   s.email = "teodor.pripoae@gmail.com"
   s.executables = ["scalaroid"]
-  s.extra_rdoc_files = [
-    "LICENSE.txt"
-  ]
   s.files = [
     ".document",
     "Gemfile",
@@ -69,4 +66,3 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<jeweler>, ["~> 2.0"])
   end
 end
-

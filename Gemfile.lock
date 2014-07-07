@@ -2,7 +2,8 @@ PATH
   remote: .
   specs:
     scalaroid (0.0.1)
-      scalaroid (~> 0)
+      json
+      scalaroid
 
 GEM
   remote: http://rubygems.org/
