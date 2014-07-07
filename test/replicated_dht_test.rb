@@ -7,19 +7,19 @@ class TestReplicatedDHT < Minitest::Test
 
   # Test method for ReplicatedDHT()
   def test_replicated_dht1()
-    rdht = Scalaris::ReplicatedDHT.new()
+    rdht = Scalaroid::ReplicatedDHT.new()
     rdht.close_connection()
   end
 
   # Test method for ReplicatedDHT(conn)
   def test_replicated_dht2()
-    rdht = Scalaris::ReplicatedDHT.new(conn = Scalaris::JSONConnection.new(url = Scalaris::DEFAULT_URL))
+    rdht = Scalaroid::ReplicatedDHT.new(conn = Scalaroid::JSONConnection.new(url = Scalaroid::DEFAULT_URL))
     rdht.close_connection()
   end
 
   # Test method for ReplicatedDHT.close_connection() trying to close the connection twice.
   def test_double_close()
-    rdht = Scalaris::ReplicatedDHT.new()
+    rdht = Scalaroid::ReplicatedDHT.new()
     rdht.close_connection()
     rdht.close_connection()
   end
@@ -27,11 +27,11 @@ class TestReplicatedDHT < Minitest::Test
   # Tries to read the value at the given key and fails if this does
   # not fail with a NotFoundError.
   def _checkKeyDoesNotExist(key)
-    conn = Scalaris::TransactionSingleOp.new()
+    conn = Scalaroid::TransactionSingleOp.new()
     begin
       conn.read(key)
       assert(false, 'the value at ' + key + ' should not exist anymore')
-    rescue Scalaris::NotFoundError
+    rescue Scalaroid::NotFoundError
       # nothing to do here
     end
     conn.close_connection()
@@ -41,7 +41,7 @@ class TestReplicatedDHT < Minitest::Test
   # Tries to delete some not existing keys.
   def test_delete_not_existing_key()
     key = "_Delete_NotExistingKey"
-    rdht = Scalaris::ReplicatedDHT.new()
+    rdht = Scalaroid::ReplicatedDHT.new()
 
     (0..($_TEST_DATA.length - 1)).each do |i|
       ok = rdht.delete(@testTime.to_s + key + i.to_s)
@@ -60,9 +60,9 @@ class TestReplicatedDHT < Minitest::Test
   # Inserts some values, tries to delete them afterwards and tries the delete again.
   def test_delete1()
     key = "_Delete1"
-    c = Scalaris::JSONConnection.new(url = Scalaris::DEFAULT_URL)
-    rdht = Scalaris::ReplicatedDHT.new(conn = c)
-    sc = Scalaris::TransactionSingleOp.new(conn = c)
+    c = Scalaroid::JSONConnection.new(url = Scalaroid::DEFAULT_URL)
+    rdht = Scalaroid::ReplicatedDHT.new(conn = c)
+    sc = Scalaroid::TransactionSingleOp.new(conn = c)
 
     (0..($_TEST_DATA.length - 1)).each do |i|
       sc.write(@testTime.to_s + key + i.to_s, $_TEST_DATA[i])
@@ -95,9 +95,9 @@ class TestReplicatedDHT < Minitest::Test
   # Inserts some values, tries to delete them afterwards, inserts them again and tries to delete them again (twice).
   def test_delete2()
     key = "_Delete2"
-    c = Scalaris::JSONConnection.new(url = Scalaris::DEFAULT_URL)
-    rdht = Scalaris::ReplicatedDHT.new(conn = c)
-    sc = Scalaris::TransactionSingleOp.new(conn = c)
+    c = Scalaroid::JSONConnection.new(url = Scalaroid::DEFAULT_URL)
+    rdht = Scalaroid::ReplicatedDHT.new(conn = c)
+    sc = Scalaroid::TransactionSingleOp.new(conn = c)
 
     (0..($_TEST_DATA.length - 1)).each do |i|
       sc.write(@testTime.to_s + key + i.to_s, $_TEST_DATA[i])

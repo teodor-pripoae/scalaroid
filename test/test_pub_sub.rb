@@ -18,19 +18,19 @@ class TestPubSub < Minitest::Test
 
   # Test method for PubSub()
   def test_pub_sub1()
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
     conn.close_connection()
   end
 
   # Test method for PubSub(conn)
   def test_pub_sub2()
-    conn = Scalaris::PubSub.new(conn = Scalaris::JSONConnection.new(url = Scalaris::DEFAULT_URL))
+    conn = Scalaroid::PubSub.new(conn = Scalaroid::JSONConnection.new(url = Scalaroid::DEFAULT_URL))
     conn.close_connection()
   end
 
   # Test method for PubSub.close_connection() trying to close the connection twice.
   def test_double_close()
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
     conn.close_connection()
     conn.close_connection()
   end
@@ -38,9 +38,9 @@ class TestPubSub < Minitest::Test
   # Test method for PubSub.publish(topic, content) with a closed connection.
   def test_publish_not_connected()
     topic = "_Publish_NotConnected"
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
     conn.close_connection()
-    #assert_raises( Scalaris::ConnectionError ) { conn.publish(@testTime.to_s + topic, $_TEST_DATA[0]) }
+    #assert_raises( Scalaroid::ConnectionError ) { conn.publish(@testTime.to_s + topic, $_TEST_DATA[0]) }
     conn.publish(@testTime.to_s + topic, $_TEST_DATA[0])
     conn.close_connection()
   end
@@ -49,7 +49,7 @@ class TestPubSub < Minitest::Test
   # Publishes some topics and uses a distinct key for each value.
   def test_publish1()
     topic = "_Publish1_"
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
 
     (0..($_TEST_DATA.length - 1)).each do |i|
       conn.publish(@testTime.to_s + topic + i.to_s, $_TEST_DATA[i])
@@ -62,7 +62,7 @@ class TestPubSub < Minitest::Test
   # Publishes some topics and uses a single key for all the values.
   def test_publish2()
     topic = "_Publish2"
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
 
     (0..($_TEST_DATA.length - 1)).each do |i|
       conn.publish(@testTime.to_s + topic, $_TEST_DATA[i])
@@ -74,9 +74,9 @@ class TestPubSub < Minitest::Test
   # Test method for PubSub.get_subscribers(topic) with a closed connection.
   def test_get_subscribers_otp_not_connected()
     topic = "_GetSubscribers_NotConnected"
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
     conn.close_connection()
-    #assert_raises( Scalaris::ConnectionError ) { conn.get_subscribers(@testTime.to_s + topic) }
+    #assert_raises( Scalaroid::ConnectionError ) { conn.get_subscribers(@testTime.to_s + topic) }
     conn.get_subscribers(@testTime.to_s + topic)
     conn.close_connection()
   end
@@ -85,7 +85,7 @@ class TestPubSub < Minitest::Test
   # Tries to get a subscriber list from an empty topic.
   def test_get_subscribers_not_existing_topic()
     topic = "_GetSubscribers_NotExistingTopic"
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
     subscribers = conn.get_subscribers(@testTime.to_s + topic)
     assert_equal([], subscribers)
     conn.close_connection()
@@ -94,9 +94,9 @@ class TestPubSub < Minitest::Test
   # Test method for PubSub.subscribe(topic url) with a closed connection.
   def test_subscribe_not_connected()
     topic = "_Subscribe_NotConnected"
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
     conn.close_connection()
-    #assert_raises( Scalaris::ConnectionError ) { conn.subscribe(@testTime.to_s + topic, $_TEST_DATA[0]) }
+    #assert_raises( Scalaroid::ConnectionError ) { conn.subscribe(@testTime.to_s + topic, $_TEST_DATA[0]) }
     conn.subscribe(@testTime.to_s + topic, $_TEST_DATA[0])
     conn.close_connection()
   end
@@ -105,7 +105,7 @@ class TestPubSub < Minitest::Test
   # Subscribes some arbitrary URLs to arbitrary topics and uses a distinct topic for each URL.
   def test_subscribe1()
     topic = "_Subscribe1_"
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
 
     (0..($_TEST_DATA.length - 1)).each do |i|
       conn.subscribe(@testTime.to_s + topic + i.to_s, $_TEST_DATA[i])
@@ -128,7 +128,7 @@ class TestPubSub < Minitest::Test
   # Subscribes some arbitrary URLs to arbitrary topics and uses a single topic for all URLs.
   def test_subscribe2()
     topic = "_Subscribe2"
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
 
     (0..($_TEST_DATA.length - 1)).each do |i|
       conn.subscribe(@testTime.to_s + topic, $_TEST_DATA[i])
@@ -149,10 +149,10 @@ class TestPubSub < Minitest::Test
   # Test method for PubSub.unsubscribe(topic url) with a closed connection.
   def test_unsubscribe_not_connected()
     topic = "_Unsubscribe_NotConnected"
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
     conn.close_connection()
-    #assert_raises( Scalaris::ConnectionError ) { conn.unsubscribe(@testTime.to_s + topic, $_TEST_DATA[0]) }
-    assert_raises( Scalaris::NotFoundError ) { conn.unsubscribe(@testTime.to_s + topic, $_TEST_DATA[0]) }
+    #assert_raises( Scalaroid::ConnectionError ) { conn.unsubscribe(@testTime.to_s + topic, $_TEST_DATA[0]) }
+    assert_raises( Scalaroid::NotFoundError ) { conn.unsubscribe(@testTime.to_s + topic, $_TEST_DATA[0]) }
     conn.close_connection()
   end
 
@@ -160,9 +160,9 @@ class TestPubSub < Minitest::Test
   # Tries to unsubscribe an URL from a non-existing topic and tries to get the subscriber list afterwards.
   def test_unsubscribe_not_existing_topic()
     topic = "_Unsubscribe_NotExistingTopic"
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
     # unsubscribe test "url":
-    assert_raises( Scalaris::NotFoundError ) { conn.unsubscribe(@testTime.to_s + topic, $_TEST_DATA[0]) }
+    assert_raises( Scalaroid::NotFoundError ) { conn.unsubscribe(@testTime.to_s + topic, $_TEST_DATA[0]) }
 
     # check whether the unsubscribed urls were unsubscribed:
     subscribers = conn.get_subscribers(@testTime.to_s + topic)
@@ -178,14 +178,14 @@ class TestPubSub < Minitest::Test
   # Tries to unsubscribe an unsubscribed URL from an existing topic and compares the subscriber list afterwards.
   def test_unsubscribe_not_existing_url()
     topic = "_Unsubscribe_NotExistingUrl"
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
 
     # first subscribe test "urls"...
     conn.subscribe(@testTime.to_s + topic, $_TEST_DATA[0])
     conn.subscribe(@testTime.to_s + topic, $_TEST_DATA[1])
 
     # then unsubscribe another "url":
-    assert_raises( Scalaris::NotFoundError ) { conn.unsubscribe(@testTime.to_s + topic, $_TEST_DATA[2]) }
+    assert_raises( Scalaroid::NotFoundError ) { conn.unsubscribe(@testTime.to_s + topic, $_TEST_DATA[2]) }
 
     # check whether the subscribers were successfully saved:
     subscribers = conn.get_subscribers(@testTime.to_s + topic)
@@ -209,7 +209,7 @@ class TestPubSub < Minitest::Test
   # Unsubscribes every second subscribed URL.
   def test_unsubscribe1()
     topic = "_UnsubscribeString1_"
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
 
     # first subscribe test "urls"...
     (0..($_TEST_DATA.length - 1)).each do |i|
@@ -249,7 +249,7 @@ class TestPubSub < Minitest::Test
   # Unsubscribes every second subscribed URL.
   def test_unsubscribe2()
     topic = "_UnubscribeString2"
-    conn = Scalaris::PubSub.new()
+    conn = Scalaroid::PubSub.new()
 
     # first subscribe all test "urls"...
     (0..($_TEST_DATA.length - 1)).each do |i|
@@ -285,13 +285,13 @@ class TestPubSub < Minitest::Test
   # Test method for PubSub.write(key, value=bytearray()) with a
   # request that is too large.
   def test_req_too_large()
-      conn = Scalaris::PubSub.new()
+      conn = Scalaroid::PubSub.new()
       data = (0..($_TOO_LARGE_REQUEST_SIZE)).map{0}.join()
       key = "_ReqTooLarge"
       begin
         conn.publish(@testTime.to_s + key, data)
         assert(false, 'The publish should have failed unless yaws_max_post_data was set larger than ' + $_TOO_LARGE_REQUEST_SIZE.to_s())
-      rescue Scalaris::ConnectionError
+      rescue Scalaroid::ConnectionError
       end
 
       conn.close_connection()

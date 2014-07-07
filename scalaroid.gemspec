@@ -25,7 +25,6 @@ Gem::Specification.new do |s|
     "VERSION",
     "bin/scalaroid",
     "lib/scalaroid.rb",
-    "lib/scalaroid/version.rb",
     "scalaroid.gemspec",
     "test/replicated_dht_test.rb",
     "test/test_helper.rb",
@@ -42,27 +41,27 @@ Gem::Specification.new do |s|
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<scalaroid>, [">= 0"])
-      s.add_development_dependency(%q<rake>, [">= 0"])
-      s.add_development_dependency(%q<minitest>, ["~> 5.3.3"])
+      s.add_runtime_dependency(%q<scalaroid>, ["~> 0"])
+      s.add_development_dependency(%q<rake>, ["~> 10.0"])
+      s.add_development_dependency(%q<minitest>, ["~> 5.3"])
       s.add_development_dependency(%q<pry>, ["= 0.9.12.6"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 2.0.1"])
+      s.add_development_dependency(%q<jeweler>, ["~> 2.0"])
     else
       s.add_dependency(%q<scalaroid>, [">= 0"])
-      s.add_dependency(%q<rake>, [">= 0"])
-      s.add_dependency(%q<minitest>, ["~> 5.3.3"])
+      s.add_dependency(%q<rake>, ["~> 10.0"])
+      s.add_dependency(%q<minitest>, ["~> 5.3"])
       s.add_dependency(%q<pry>, ["= 0.9.12.6"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
-      s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
+      s.add_dependency(%q<jeweler>, ["~> 2.0"])
     end
   else
     s.add_dependency(%q<scalaroid>, [">= 0"])
-    s.add_dependency(%q<rake>, [">= 0"])
-    s.add_dependency(%q<minitest>, ["~> 5.3.3"])
+    s.add_dependency(%q<rake>, ["~> 10.0"])
+    s.add_dependency(%q<minitest>, ["~> 5.3"])
     s.add_dependency(%q<pry>, ["= 0.9.12.6"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
-    s.add_dependency(%q<jeweler>, ["~> 2.0.1"])
+    s.add_dependency(%q<jeweler>, ["~> 2.0"])
     s.add_dependency(%q<json>, [">= 0"])
   end
 end

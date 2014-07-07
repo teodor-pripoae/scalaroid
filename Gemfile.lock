@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     scalaroid (0.0.1)
-      scalaroid
+      scalaroid (~> 0)
 
 GEM
   remote: http://rubygems.org/
@@ -65,9 +65,9 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.0)
-  jeweler (~> 2.0.1)
+  jeweler (~> 2.0)
   json
-  minitest (~> 5.3.3)
+  minitest (~> 5.3)
   pry (= 0.9.12.6)
-  rake
+  rake (~> 10.0)
   scalaroid!
