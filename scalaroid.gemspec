@@ -34,7 +34,7 @@ Gem::Specification.new do |s|
     "test/transaction_test.rb"
   ]
   s.homepage = "http://github.com/teodor-pripoae/scalaroid"
-  s.licenses = ["MIT"]
+  s.licenses = ["Apache-2.0"]
   s.rubygems_version = "2.2.2"
   s.summary = "Ruby bindings for Scalaris"
 
