@@ -1,6 +1,6 @@
 require "minitest/autorun"
 
-require "scalaris"
+require "scalaroid"
 require "pry"
 
 $_TEST_DATA = [
