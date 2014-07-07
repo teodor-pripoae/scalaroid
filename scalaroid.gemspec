@@ -12,15 +12,17 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.authors = ["Teodor Pripoae"]
   s.date = "2014-07-07"
-  s.description = "Ruby bindings for Scalaris, forked from scalaris official gem"
+  s.description = "TODO: longer description of your gem"
   s.email = "teodor.pripoae@gmail.com"
   s.executables = ["scalaroid"]
   s.extra_rdoc_files = [
     "LICENSE.txt"
   ]
   s.files = [
+    ".document",
     "Gemfile",
     "Gemfile.lock",
+    "LICENSE.txt",
     "Rakefile",
     "VERSION",
     "bin/scalaroid",
@@ -33,15 +35,16 @@ Gem::Specification.new do |s|
     "test/transaction_test.rb"
   ]
   s.homepage = "http://github.com/teodor-pripoae/scalaroid"
-  s.licenses = ["Apache-2.0"]
+  s.licenses = ["MIT"]
   s.rubygems_version = "2.2.2"
-  s.summary = "Ruby bindings for Scalaris"
+  s.summary = "TODO: one-line summary of your gem"
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
 
     if Gem::Version.new(Gem::VERSION) >= Gem::Version.new('1.2.0') then
-      s.add_runtime_dependency(%q<scalaroid>, ["~> 0"])
+      s.add_runtime_dependency(%q<scalaroid>, [">= 0"])
+      s.add_runtime_dependency(%q<json>, [">= 0"])
       s.add_development_dependency(%q<rake>, ["~> 10.0"])
       s.add_development_dependency(%q<minitest>, ["~> 5.3"])
       s.add_development_dependency(%q<pry>, ["= 0.9.12.6"])
@@ -49,6 +52,7 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<jeweler>, ["~> 2.0"])
     else
       s.add_dependency(%q<scalaroid>, [">= 0"])
+      s.add_dependency(%q<json>, [">= 0"])
       s.add_dependency(%q<rake>, ["~> 10.0"])
       s.add_dependency(%q<minitest>, ["~> 5.3"])
       s.add_dependency(%q<pry>, ["= 0.9.12.6"])
@@ -57,11 +61,12 @@ Gem::Specification.new do |s|
     end
   else
     s.add_dependency(%q<scalaroid>, [">= 0"])
+    s.add_dependency(%q<json>, [">= 0"])
     s.add_dependency(%q<rake>, ["~> 10.0"])
     s.add_dependency(%q<minitest>, ["~> 5.3"])
     s.add_dependency(%q<pry>, ["= 0.9.12.6"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
     s.add_dependency(%q<jeweler>, ["~> 2.0"])
-    s.add_dependency(%q<json>, [">= 0"])
   end
 end
+
