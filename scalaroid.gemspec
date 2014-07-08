@@ -6,7 +6,7 @@
 
 Gem::Specification.new do |s|
   s.name = "scalaroid"
-  s.version = "0.0.2"
+  s.version = "0.0.3"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.require_paths = ["lib"]
@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "bin/scalaroid",
     "lib/scalaroid.rb",
     "lib/scalaroid/delete_result.rb",
+    "lib/scalaroid/errors.rb",
     "lib/scalaroid/json_connection.rb",
     "lib/scalaroid/json_req_list.rb",
     "lib/scalaroid/json_req_list_transaction.rb",
