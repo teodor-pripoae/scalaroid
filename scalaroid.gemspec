@@ -12,7 +12,7 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
   s.authors = ["Teodor Pripoae"]
   s.date = "2014-07-07"
-  s.description = "TODO: longer description of your gem"
+  s.description = "Ruby bindings for Scalaris forked from official Scalaris bindings"
   s.email = "teodor.pripoae@gmail.com"
   s.executables = ["scalaroid"]
   s.extra_rdoc_files = [
@@ -24,9 +24,10 @@ Gem::Specification.new do |s|
     "Gemfile.lock",
     "LICENSE.txt",
     "Rakefile",
-    "VERSION",
     "bin/scalaroid",
     "lib/scalaroid.rb",
+    "lib/scalaroid/json_connection.rb",
+    "lib/scalaroid/version.rb",
     "scalaroid.gemspec",
     "test/replicated_dht_test.rb",
     "test/test_helper.rb",
@@ -35,9 +36,9 @@ Gem::Specification.new do |s|
     "test/transaction_test.rb"
   ]
   s.homepage = "http://github.com/teodor-pripoae/scalaroid"
-  s.licenses = ["MIT"]
+  s.licenses = ["Apache-2.0"]
   s.rubygems_version = "2.2.2"
-  s.summary = "TODO: one-line summary of your gem"
+  s.summary = "Ruby bindings for Scalaris"
 
   if s.respond_to? :specification_version then
     s.specification_version = 4
@@ -49,7 +50,6 @@ Gem::Specification.new do |s|
       s.add_development_dependency(%q<minitest>, ["~> 5.3"])
       s.add_development_dependency(%q<pry>, ["= 0.9.12.6"])
       s.add_development_dependency(%q<bundler>, ["~> 1.0"])
-      s.add_development_dependency(%q<jeweler>, ["~> 2.0"])
     else
       s.add_dependency(%q<scalaroid>, [">= 0"])
       s.add_dependency(%q<json>, [">= 0"])
@@ -57,7 +57,6 @@ Gem::Specification.new do |s|
       s.add_dependency(%q<minitest>, ["~> 5.3"])
       s.add_dependency(%q<pry>, ["= 0.9.12.6"])
       s.add_dependency(%q<bundler>, ["~> 1.0"])
-      s.add_dependency(%q<jeweler>, ["~> 2.0"])
     end
   else
     s.add_dependency(%q<scalaroid>, [">= 0"])
@@ -66,7 +65,5 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<minitest>, ["~> 5.3"])
     s.add_dependency(%q<pry>, ["= 0.9.12.6"])
     s.add_dependency(%q<bundler>, ["~> 1.0"])
-    s.add_dependency(%q<jeweler>, ["~> 2.0"])
   end
 end
-
