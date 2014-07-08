@@ -39,7 +39,7 @@ def add_on_nr(sc, key_value_list)
   begin
     key, to_add = key_value_list
     sc.add_on_nr(key, to_add)
-  rescue Scalaris::NotANumberError
+  rescue Scalaroid::NotANumberError
     $stderr.print "Error: " + $!.to_s.to_json + "\n"
     exit
   end
@@ -49,7 +49,7 @@ def add_del_on_list(sc, key_value_list)
   begin
     key, to_add, to_remove = key_value_list
     sc.add_del_on_list(key, to_add, to_remove)
-  rescue Scalaris::NotAListError
+  rescue Scalaroid::NotAListError
     $stderr.print "Error: " + $!.to_s.to_json + "\n"
     exit
   end
@@ -107,7 +107,7 @@ rescue OptionParser::ParseError
   exit
 end
 
-sc = Scalaris::TransactionSingleOp.new
+sc = Scalaroid::TransactionSingleOp.new
 
 pp sc.read(options[:read]) unless options[:read] == nil
 pp write(sc, options[:write]) unless options[:write] == nil
