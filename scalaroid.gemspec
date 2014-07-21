@@ -19,7 +19,6 @@ Gem::Specification.new do |s|
     "LICENSE.txt"
   ]
   s.files = [
-    ".document",
     "Gemfile",
     "Gemfile.lock",
     "LICENSE.txt",
