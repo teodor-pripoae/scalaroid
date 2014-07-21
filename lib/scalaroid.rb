@@ -69,6 +69,7 @@ module Scalaroid
   autoload :TimeoutError, "scalaroid/errors"
   autoload :UnknownError, "scalaroid/errors"
 
+  autoload :Client, "scalaroid/client"
   autoload :DeleteResult, "scalaroid/delete_result"
   autoload :JSONConnection, "scalaroid/json_connection"
   autoload :JSONReqList, "scalaroid/json_req_list"
